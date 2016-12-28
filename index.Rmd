@@ -38,7 +38,7 @@ tabela <- read_excel("agrarias-2015.xlsx")
 
 
 ```{r, echo=FALSE}
-datatable(tabela, filter = 'top',
+datatable(tabela, 
           escape = FALSE,
           class = 'cell-border stripe',
           rownames = FALSE, colnames = c('Título', 'Estrato do Qualis'), 

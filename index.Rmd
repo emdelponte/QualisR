@@ -16,6 +16,7 @@ Column {.tabset data-width=750px}
 
 
 ```{r, message=FALSE, warning=FALSE, include=FALSE}
+Sys.setlocale("LC_ALL", 'pt_BR.UTF-8')
 library(tidyverse)
 library(DT)
 library(readxl)
@@ -43,9 +44,9 @@ datatable(tabela,
           class = 'cell-border stripe',
           rownames = FALSE, colnames = c('Título', 'Estrato do Qualis'), 
           options = list(
-  pageLength = 25,
+  pageLength = 15,
   fontSize = 12,
-  lengthMenu = c(10, 25, 50, 100, 500 )
+  lengthMenu = c(15, 50, 100, 500 )
 ))%>%
 formatStyle(
   c('Titulo', 'Estrato'),
@@ -83,11 +84,9 @@ formatStyle(
 
 ### Créditos
 
-Website desenvolvido pelo Laboratório de Epidemiologia do Departamento de Fitopatologia da UFV. Desenvolvedor: Emerson Del Ponte
 
-Sistema desenvolvido em flexdashboard do ambiente computacional R. Tabelas dinâmicas criadas no pacote DT. Gráficos interativos criados com o pacote DT.
-
-Data de criação: 27 de Dezembro de 2016
+#### Sobre o sistema
+Website desenvolvido pelo Laboratório de Epidemiologia do Departamento de Fitopatologia da UFV. Desenvolvedor: Emerson Del Ponte. Sistema desenvolvido em flexdashboard do ambiente computacional R. Tabelas dinâmicas criadas no pacote DT. Gráficos interativos criados com o pacote DT. Data de criação: 27 de Dezembro de 2016
 
 Column {.tabset}
 ----------------------------------

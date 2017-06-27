@@ -1,5 +1,5 @@
 ---
-title: "QualisR - Busca de Qualis Ciências Agrárias I"
+title: "QualisR - Busca de Qualis Periódicos Ciências Agrárias I - fonte: Plataforma Sucupira"
 output: 
   flexdashboard::flex_dashboard:
     theme: flatly
@@ -116,7 +116,11 @@ formatStyle(
 
 
 #### Sobre o sistema
-Website desenvolvido pelo Laboratório de Epidemiologia do Departamento de Fitopatologia da UFV. Desenvolvedor: Emerson Del Ponte. Sistema desenvolvido em flexdashboard do ambiente computacional R. Tabelas dinâmicas criadas no pacote DT. Gráficos interativos criados com o pacote DT. Data de criação: 27 de Dezembro de 2016
+Website desenvolvido por Emerson Del Ponte. Sistema desenvolvido em flexdashboard do ambiente computacional R e RStudio IDE. Tabelas dinâmicas criadas no pacote DT. Gráficos interativos criados com o pacote plotly. Data de criação: 27 de Dezembro de 2016. Atualizado em 26 de junho.
+
+Atualizações:
+16 jun - Adicionada tabela da avaliação quadrienal 2013-2016
+
 
 Column {.tabset}
 ----------------------------------

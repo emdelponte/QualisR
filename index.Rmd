@@ -1,5 +1,5 @@
 ---
-title: "QualisR - Busca de Qualis Ciências Agrárias I"
+title: "QualisR - Busca de Qualis Periódicos Ciências Agrárias I - fonte: Plataforma Sucupira"
 output: 
   flexdashboard::flex_dashboard:
     theme: flatly
@@ -16,6 +16,7 @@ Column {.tabset data-width=750px}
 
 
 ```{r, message=FALSE, warning=FALSE, include=FALSE}
+Sys.setlocale("LC_ALL", 'pt_BR.UTF-8')
 library(tidyverse)
 library(DT)
 library(readxl)
@@ -24,6 +25,36 @@ library(stringr)
 library(knitr)
 Sys.setlocale("LC_ALL", 'pt_BR.UTF-8')
 ```
+
+
+
+### Tabela 2013-2016 
+
+
+
+```{r}
+
+tabela16 <- read_excel("agrarias-2016.xlsx")
+```
+
+
+
+```{r, echo=FALSE}
+datatable(tabela16, 
+          escape = FALSE,
+          class = 'cell-border stripe',
+          rownames = FALSE, colnames = c('Título', 'Estrato do Qualis'), 
+          options = list(
+  pageLength = 15,
+  fontSize = 12,
+  lengthMenu = c(15, 50, 100, 500 )
+))%>%
+formatStyle(
+  c('Titulo', 'Estrato'),
+  fontSize = '80%')
+
+```
+
 
 
 ### Tabela 2015 
@@ -43,9 +74,9 @@ datatable(tabela,
           class = 'cell-border stripe',
           rownames = FALSE, colnames = c('Título', 'Estrato do Qualis'), 
           options = list(
-  pageLength = 25,
+  pageLength = 15,
   fontSize = 12,
-  lengthMenu = c(10, 25, 50, 100, 500 )
+  lengthMenu = c(15, 50, 100, 500 )
 ))%>%
 formatStyle(
   c('Titulo', 'Estrato'),
@@ -83,14 +114,33 @@ formatStyle(
 
 ### Créditos
 
-Website desenvolvido pelo Laboratório de Epidemiologia do Departamento de Fitopatologia da UFV. Desenvolvedor: Emerson Del Ponte
 
-Sistema desenvolvido em flexdashboard do ambiente computacional R. Tabelas dinâmicas criadas no pacote DT. Gráficos interativos criados com o pacote DT.
+#### Sobre o sistema
+Website desenvolvido por Emerson Del Ponte. Sistema desenvolvido em flexdashboard do ambiente computacional R e RStudio IDE. Tabelas dinâmicas criadas no pacote DT. Gráficos interativos criados com o pacote plotly. Data de criação: 27 de Dezembro de 2016. Atualizado em 26 de junho.
 
-Data de criação: 27 de Dezembro de 2016
+Atualizações:
+16 jun - Adicionada tabela da avaliação quadrienal 2013-2016
+
 
 Column {.tabset}
 ----------------------------------
+
+
+### Periódicos por estrato 2016
+
+```{r}
+library(ggplot2)
+library(viridis)
+plot1 <- tabela16 %>% 
+ ggplot(aes(x = Estrato, fill = Estrato))+
+ geom_bar(stat="count")+
+ scale_fill_viridis(discrete = T)+
+ labs(y = "Número de periódicos")
+
+(gg <- ggplotly(plot1))%>% 
+    layout(autosize = F, height=400, width = 550)
+```
+
 
 ### Periódicos por estrato 2015
 

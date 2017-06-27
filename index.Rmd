@@ -147,13 +147,13 @@ plot1 <- tabela16 %>%
 ```{r}
 library(ggplot2)
 library(viridis)
-plot1 <- tabela %>% 
+plot2 <- tabela %>% 
  ggplot(aes(x = Estrato, fill = Estrato))+
  geom_bar(stat="count")+
  scale_fill_viridis(discrete = T)+
  labs(y = "Número de periódicos")
 
-(gg <- ggplotly(plot1))%>% 
+(gg <- ggplotly(plot2))%>% 
     layout(autosize = F, height=400, width = 550)
 ```
 
@@ -161,13 +161,13 @@ plot1 <- tabela %>%
 ```{r}
 library(ggplot2)
 library(viridis)
-plot1 <- tabela1 %>% 
+plot3 <- tabela1 %>% 
  ggplot(aes(x = Estrato, fill = Estrato))+
  geom_bar(stat="count")+
  scale_fill_viridis(discrete = T)+
  labs(y = "Número de periódicos")
 
-(gg <- ggplotly(plot1))%>% 
+(gg <- ggplotly(plot3))%>% 
     layout(autosize = F, height=400, width = 550)
 ```
 
